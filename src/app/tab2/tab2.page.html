@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Register new post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item>
+    <ion-label position="stacked">Your message:</ion-label>
+    <ion-input [(ngModel)]="model.message" name="message"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">To:</ion-label>
+    <ion-select [(ngModel)]="model.to" name="to">
+      <ion-select-option value="f">EveryOne</ion-select-option>
+      <ion-select-option *ngFor="let friend of friendToDisplay" [value]="friend.name">{{friend.name}}</ion-select-option>
+
+
+    </ion-select>
+    <ion-item>
+      <ion-label position="stacked">Img Url:</ion-label>
+      <ion-input [(ngModel)]="model.img" name="img"></ion-input>
+    </ion-item>
+
+  </ion-item>
+
+  <ion-button (click)="post();" expand="full" size="medium" color="primary">Submit post</ion-button>
+
+</ion-content>
